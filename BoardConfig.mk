@@ -35,6 +35,8 @@ TARGET_BOOTLOADER_BOARD_NAME := encore
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_USERIMAGES_USE_EXT4 := true
 OMAP_ENHANCEMENT := true
+TARGET_OMAP3 := true
+COMMON_GLOBAL_CFLAGS += -DTARGET_OMAP3 -DOMAP_COMAPT -DBINDER_COMPAT
 
 BOARD_CUSTOM_BOOTIMG_MK := device/bn/encore/uboot-bootimg.mk
 TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := ./device/bn/encore/releasetools/encore_img_from_target_files
@@ -66,7 +68,7 @@ TARGET_RECOVERY_PRE_COMMAND := "dd if=/dev/zero of=/rom/bcb bs=64 count=1 > /dev
 # audio stuff
 BOARD_USES_AUDIO_LEGACY := true
 
-#HARDWARE_OMX := true
+HARDWARE_OMX := true
 
 # Modem
 TARGET_NO_RADIOIMAGE := true
@@ -77,6 +79,10 @@ BOARD_EGL_CFG := device/bn/encore/egl.cfg
 #COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE \
 #			-DMISSING_EGL_PIXEL_FORMAT_YV12 \
 #			-DMISSING_GRALLOC_BUFFERS
+DEFAULT_FB_NUM := 0
+BOARD_USE_YUV422I_DEFAULT_COLORFORMAT := true
+BOARD_USES_OVERLAY := true
+ENABLE_WEBGL := true
 
 # Workaround for eglconfig error
 BOARD_NO_RGBX_8888 := true
@@ -115,17 +121,23 @@ BOARD_HAS_NO_MISC_PARTITION := true
 ifdef HARDWARE_OMX
 OMX_JPEG := true
 OMX_VENDOR := ti
+# DONT ENABLE YET
+#TARGET_USE_OMX_RECOVERY := true
+#TARGET_USE_OMAP_COMPAT := true
+BUILD_WITH_TI_AUDIO := 1
+BUILD_PV_VIDEO_ENCODERS := 1
 OMX_VENDOR_INCLUDES := \
-  hardware/ti/omx/system/src/openmax_il/omx_core/inc \
-  hardware/ti/omx/image/src/openmax_il/jpeg_enc/inc
+  hardware/ti/omap3/omx/system/src/openmax_il/omx_core/inc \
+  hardware/ti/omap3/omx/image/src/openmax_il/jpeg_enc/inc
 OMX_VENDOR_WRAPPER := TI_OMX_Wrapper
 BOARD_OPENCORE_LIBRARIES := libOMX_Core
 BOARD_OPENCORE_FLAGS := -DHARDWARE_OMX=1
-BOARD_CAMERA_LIBRARIES := libcamera
+#BOARD_CAMERA_LIBRARIES := libcamera
 endif
-      
+
+# OMAP_ENHANCEMENT is only used for OMAP4 now. Will soon be updating to use OMAP_COMPAT instead      
 ifdef OMAP_ENHANCEMENT
-COMMON_GLOBAL_CFLAGS += -DOMAP_ENHANCEMENT
+COMMON_GLOBAL_CFLAGS += -DOMAP_ENHANCEMENT -DTARGET_OMAP3
 endif
 
 BOARD_USES_SECURE_SERVICES := true

@@ -116,7 +116,7 @@ TARGET_RECOVERY_PRE_COMMAND := "dd if=/dev/zero of=/rom/bcb bs=64 count=1 > /dev
 TARGET_NO_RADIOIMAGE := true
 
 # HW Graphics (EGL fixes + webkit fix)
-#USE_OPENGL_RENDERER := true
+USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/bn/encore/egl.cfg
 DEFAULT_FB_NUM := 0
 BOARD_USE_YUV422I_DEFAULT_COLORFORMAT := true

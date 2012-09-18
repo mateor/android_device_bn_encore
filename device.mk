@@ -42,10 +42,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/bn/encore/firmware/TIInit_7.2.31.bts:/system/etc/firmware/TIInit_7.2.31.bts
 
-# Overlay (omapzoom)
-#PRODUCT_COPY_FILES += \
-#    device/bn/encore/prebuilt/GFX/system/lib/hw/overlay.omap3.so:/system/lib/hw/overlay.omap3.so 
-
 # Place permission files
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -145,10 +141,8 @@ PRODUCT_PACKAGES += \
     libLCML \
     libOMX_Core \
     libOMX.TI.AAC.decode \
-    libOMX.TI.AAC.decode \
     libOMX.TI.AAC.encode \
     libOMX.TI.AMR.decode \
-    libOMX.TI.AMR.encode \
     libOMX.TI.AMR.encode \
     libOMX.TI.G711.decode \
     libOMX.TI.G711.encode \
@@ -168,7 +162,6 @@ PRODUCT_PACKAGES += \
     libOMX.TI.VPP \
     libOMX.TI.WBAMR.decode \
     libOMX.TI.WBAMR.encode \
-    libOMX.TI.WBAMR.encode \
     libOMX.TI.WMA.decode \
     libVendor_ti_omx
 
@@ -178,14 +171,10 @@ PRODUCT_PACKAGES += \
 # from omap3.mk.
 
 PRODUCT_PACKAGES += \
-	libdomx \
 	libstagefrighthw \
 	libion \
 	smc_pa_ctrl \
 	tf_daemon
-
-PRODUCT_PACKAGES += \
-	cexec.out
 
 # TI_WLAN stuff
 PRODUCT_PACKAGES += \

@@ -172,7 +172,7 @@ PRODUCT_PACKAGES += \
     libOMX.TI.WMA.decode \
     libVendor_ti_omx
 
-# PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
         libskiahw
 
 # from omap3.mk.

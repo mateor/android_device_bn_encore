@@ -81,8 +81,9 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_USES_UBOOT := true
 
 # Inline kernel building config
-TARGET_KERNEL_CONFIG := encore_defconfig
-TARGET_KERNEL_SOURCE := kernel/bn/encore
+# TARGET_KERNEL_CONFIG := encore_defconfig
+# TARGET_KERNEL_SOURCE := kernel/bn/encore
+TARGET_PREBUILT_KERNEL := device/bn/encore/prebuilt/boot/kernel
 
 # Connectivity - Wi-Fi
 USES_TI_MAC80211 := true

@@ -153,33 +153,33 @@ PRODUCT_PACKAGES += \
 # Addition of LOCAL_MODULE_TAGS requires us to specify
 # libraries needed for a particular device
 #PRODUCT_PACKAGES += \
-#    libI420colorconvert \
-#    libLCML \
-#    libOMX_Core \
-#    libOMX.TI.AAC.decode \
-#    libOMX.TI.AAC.encode \
-#    libOMX.TI.AMR.decode \
-#    libOMX.TI.AMR.encode \
-#    libOMX.TI.G711.decode \
-#    libOMX.TI.G711.encode \
-#    libOMX.TI.G722.decode \
-#    libOMX.TI.G722.encode \
-#    libOMX.TI.G726.decode \
-#    libOMX.TI.G726.encode \
-#    libOMX.TI.G729.decode \
-#    libOMX.TI.G729.encode \
-#    libOMX.TI.ILBC.decode \
-#    libOMX.TI.ILBC.encode \
-#    libOMX.TI.JPEG.decoder \
-#    libOMX.TI.JPEG.encoder \
-#    libOMX.TI.MP3.decode \
-#    libOMX.TI.Video.Decoder \
-#    libOMX.TI.Video.encoder \
-#    libOMX.TI.VPP \
-#    libOMX.TI.WBAMR.decode \
-#    libOMX.TI.WBAMR.encode \
-#    libOMX.TI.WMA.decode \
-#    libVendor_ti_omx
+    libI420colorconvert \
+    libLCML \
+    libOMX_Core \
+    libOMX.TI.AAC.decode \
+    libOMX.TI.AAC.encode \
+    libOMX.TI.AMR.decode \
+    libOMX.TI.AMR.encode \
+    libOMX.TI.G711.decode \
+    libOMX.TI.G711.encode \
+    libOMX.TI.G722.decode \
+    libOMX.TI.G722.encode \
+    libOMX.TI.G726.decode \
+    libOMX.TI.G726.encode \
+    libOMX.TI.G729.decode \
+    libOMX.TI.G729.encode \
+    libOMX.TI.ILBC.decode \
+    libOMX.TI.ILBC.encode \
+    libOMX.TI.JPEG.decoder \
+    libOMX.TI.JPEG.encoder \
+    libOMX.TI.MP3.decode \
+    libOMX.TI.Video.Decoder \
+    libOMX.TI.Video.encoder \
+    libOMX.TI.VPP \
+    libOMX.TI.WBAMR.decode \
+    libOMX.TI.WBAMR.encode \
+    libOMX.TI.WMA.decode \
+    libVendor_ti_omx
 
 PRODUCT_PACKAGES += \
         libskiahw
@@ -187,11 +187,11 @@ PRODUCT_PACKAGES += \
 # from omap3.mk.
 
 #PRODUCT_PACKAGES += \
-#	libdomx \
-#	libstagefrighthw \
-#	libion \
-#	smc_pa_ctrl \
-#	tf_daemon
+	libdomx \
+	libstagefrighthw \
+	libion \
+	smc_pa_ctrl \
+	tf_daemon
 
 PRODUCT_PACKAGES += \
 	cexec.out

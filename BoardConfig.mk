@@ -29,6 +29,7 @@ TARGET_BOARD_PLATFORM := omap3
 TARGET_CPU_ABI := armeabi-v7a
 ARCH_ARM_HAVE_ARMV7A := true
 TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 #ARCH_ARM_USE_NON_NEON_MEMCPY := true
@@ -84,6 +85,8 @@ BOARD_USES_UBOOT := true
 # Inline kernel building config
 TARGET_KERNEL_CONFIG := encore_cm10.1_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/encore
+TARGET_PREBUILT_KERNEL := device/bn/encore/prebuilt/boot/kernel
+
 
 # Connectivity - Wi-Fi
 USES_TI_MAC80211 := true

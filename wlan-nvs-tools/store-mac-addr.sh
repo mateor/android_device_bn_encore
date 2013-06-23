@@ -7,7 +7,11 @@ ROM_NVS=/system/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin
 ORIG_NVS=/data/misc/wifi/wl1271-nvs.bin.orig
 NEW_NVS=/data/misc/wifi/wl1271-nvs.bin
 
-PATH=/vendor/bin:/system/bin:/system/xbin
+# Echoes the substring of $1 starting at index $2 of length $3
+substr() {
+	echo "$1" | dd bs=1 skip="$2" count="$3" 2>/dev/null
+}
+
 umask 0022
 
 # Don't bother updating the nvs file if the one shipped in the ROM hasn't
@@ -23,17 +27,23 @@ macaddr=$(cat /rom/devconf/MACAddress)
 # (indexed to 0), and the two most-significant bytes in little-endian order
 # starting at byte offset 10.
 #
-# We're using printf to write these bytes to the file, so parse the MAC
-# address to produce the escape sequences we'll use as arguments to printf.
-lowbytes=$(echo "$macaddr" | sed -e 's#^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\)$#\\x\6\\x\5\\x\4\\x\3#')
-highbytes=$(echo "$macaddr" | sed -e 's#^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\)$#\\x\2\\x\1#')
+# We're using echo -ne to write these bytes to the file, so parse the MAC
+# address to produce the escape sequences needed to echo the bytes.
+b0=$(substr "$macaddr" 0 2)
+b1=$(substr "$macaddr" 2 2)
+b2=$(substr "$macaddr" 4 2)
+b3=$(substr "$macaddr" 6 2)
+b4=$(substr "$macaddr" 8 2)
+b5=$(substr "$macaddr" 10 2)
+lowbytes="\x$b5\x$b4\x$b3\x$b2"
+highbytes="\x$b1\x$b0"
 
 # Create the new nvs file by copying over the ROM's copy byte by byte,
 # replacing only the pieces containing the MAC address
 dd if="$ROM_NVS" of="$NEW_NVS" bs=1 count=3
-printf "$lowbytes" >> "$NEW_NVS"
+echo -ne "$lowbytes" >> "$NEW_NVS"
 dd if="$ROM_NVS" of="$NEW_NVS" bs=1 skip=7 seek=7 count=3
-printf "$highbytes" >> "$NEW_NVS"
+echo -ne "$highbytes" >> "$NEW_NVS"
 dd if="$ROM_NVS" of="$NEW_NVS" bs=1 skip=12 seek=12
 
 # Store the unmodified nvs file for reference

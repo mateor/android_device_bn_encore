@@ -222,3 +222,9 @@ CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.version = $(CM_VERSION)
+
+# AOSP for Nook Color Goo Manager update parameters
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.goo.developerid=mateor \
+  ro.goo.rom=aosp_encore \
+  ro.goo.version=$(shell date +%s)

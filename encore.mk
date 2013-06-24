@@ -212,6 +212,8 @@ $(call inherit-product-if-exists, vendor/bn/encore/encore-vendor.mk)
 #$(call inherit-product-if-exists, hardware/ti/wpan/ti-wpan-products.mk)
 #$(call inherit-product-if-exists, device/ti/proprietary-open/wl12xx/wlan/wl12xx-wlan-fw-products.mk)
 
+# AOSP ADDITIONS
+
 #Superuser
 SUPERUSER_EMBEDDED := true
 
@@ -228,3 +230,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.goo.developerid=mateor \
   ro.goo.rom=aosp_encore \
   ro.goo.version=$(shell date +%s)
+
+# Include an Email app (logcat hisses and complains without it...probably a better way than this.
+PRODUCT_PACKAGES += Email 

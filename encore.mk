@@ -214,3 +214,11 @@ $(call inherit-product-if-exists, vendor/bn/encore/encore-vendor.mk)
 
 #Superuser
 SUPERUSER_EMBEDDED := true
+
+# Hack needed for Nook Color's sdcard-installer script. It has been in use for too many years to expect change. 
+# I am not happy about it either.
+PRODUCT_VERSION_MAJOR := 10.1
+CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.cm.version = $(CM_VERSION)

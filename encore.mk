@@ -263,3 +263,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Include an Email app (logcat hisses and complains without it...probably a better way than this.
 PRODUCT_PACKAGES += Email 
+
+# Location
+PRODUCT_PACKAGE_OVERLAYS := device/sample/overlays/location
+PRODUCT_PACKAGES := NetworkLocation
